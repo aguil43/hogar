@@ -41,14 +41,14 @@ def auth_user(user_name, password):
         document.close()
     except db.OperationalError:
         print("ptm un error")
+    print(len(user_name_DB) == 1)
     if(len(user_name_DB) == 1):
-        password_DB = user_name_DB[0][2]
         username_DB = user_name_DB[0][1]
+        password_DB = user_name_DB[0][2]
     else:
         password_DB = "0"
         username_DB = "0"
-    hash = hashlib.sha256(password_DB.encode()).hexdigest()
-    if user_name == username_DB and password == hash:
+    if user_name == username_DB and password == password_DB:
         dates = [True, user_name_DB[0][0]]
         return dates
     else:

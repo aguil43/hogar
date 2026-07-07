@@ -13,11 +13,11 @@
         <header class="titulo">
             <h1>Log In</h1>
         </header>
-        <section class="campos">
-            <input type="text" placeholder="Nombre de usuario" id="nombre">
-            <input type="password" placeholder="Contraseña" id="contraseña">
-            <button onclick="log()">Ingresar</button>
-        </section>
+        <form class="campos" action="/login" method="POST">
+            <input type="text" placeholder="Nombre de usuario" id="nombre" name="username">
+            <input type="password" placeholder="Contraseña" id="contraseña" name="password">
+            <button type="submit">Ingresar</button>
+        </form>
     </div>
 </body>
 <script src="static/app.js"></script>
@@ -25,7 +25,7 @@
 {% if err %}
 <script>
     alert("Error al iniciar sesion");
-    window.open('/', "_self")
+    //window.open('/login', "_self")
 </script>
 {% endif %}
 </html>

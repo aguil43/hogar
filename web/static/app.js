@@ -1,5 +1,3 @@
-console.log("Prueba?") //comprobar si el archivo js esta conectado a html
-
 var intentos = 0;
 var id = undefined;
 
@@ -96,7 +94,6 @@ function cookies(nombre){
     }
     var igual = micookie.indexOf("=");
     let valorOfCookie = micookie.substring(igual+1);
-    //console.log(valorOfCookie)
     return valorOfCookie
 }
 
