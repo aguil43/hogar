@@ -1,5 +1,6 @@
 __pycache__/*
 antiguo.css
-db
+db/*
 excp.css
 .vscode
+static/json/users.json

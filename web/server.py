@@ -19,6 +19,10 @@ def inicio():
     url_for('static', filename='img/croquis.png')
     return render_template('html/home.html')
 
+@app.route('/principal')
+def redireccionar():
+    return redirect('/')
+
 # El inicio de sesion se gestiona desde la misma ruta, pero se define por el tipo de peticion recibido 
 @app.route('/login', methods=['GET', 'POST'])
 def saludo():
@@ -72,6 +76,7 @@ def variable(product_name):
     url_for('static', filename='css/variable.css')
     return render_template('html/variable.html')
 
+# TODO: Cambiar metodo de esta ruta a PATCH
 # Realizar la accion de agregar stock a un producto
 @app.route('/store/<product_name>/fill/<filled>')
 def fill_route(product_name, filled):
@@ -79,6 +84,7 @@ def fill_route(product_name, filled):
     time.sleep(3)
     return redirect('/store/' + product_name)
 
+# TODO: Cambiar metodo de esta peticion a PATCH
 # Realizar la accion de vender un producto
 @app.route('/store/<product_name>/sell/<selled>')
 def sell_route(product_name, selled):
@@ -86,6 +92,7 @@ def sell_route(product_name, selled):
     time.sleep(3)
     return redirect('/store/' + product_name)
 
+# TODO: Cambiar metodo de esta peticion a PATCH
 # Realizar la accion de cambiar un precio
 @app.route('/store/<product_name>/changeprice/<new_price>')
 def price(product_name, new_price):
@@ -93,6 +100,7 @@ def price(product_name, new_price):
     time.sleep(3)
     return redirect('/store/' + product_name)
 
+# TODO: Cambiar el metodo de esta peticion a POST
 # Realizar la accion de agregar un nuevo producto
 @app.route('/store/new/<new_product>')
 def create(new_product):
@@ -106,6 +114,7 @@ def users():
     data_db()
     return render_template('html/usuarios.html')
 
+# TODO: Cambiar metodo a peticion POST
 # Accion de crear usuario
 @app.route('/users/createuser/<user_name>/<password>')
 def create_user(user_name, password):
@@ -113,6 +122,7 @@ def create_user(user_name, password):
     time.sleep(3)
     return redirect('/users')
 
+# TODO: Cambiar metodo a peticion PATCH
 # Accion para modificar un nombre de usaurio 
 @app.route('/users/modify/username/<change_user>/<id>')
 def modify_username(change_user, id):
@@ -121,6 +131,7 @@ def modify_username(change_user, id):
     time.sleep(3)
     return redirect('/users')
 
+# TODO: Cambiar metodo a peticion PATCH
 # Accion para cambiar una contrasena
 @app.route('/users/modify/password/<change_password>/<id>')
 def modify_password(change_password, id):
@@ -129,6 +140,4 @@ def modify_password(change_password, id):
     time.sleep(3)
     return redirect('/users')
 
-# Condicion para ejecutar el archivo de server como un script
-if __name__ == '__main__':
-    app.run('0.0.0.0', debug=True, port=8080)
+# TODO: Hacer ruta para eliminar usuarios
