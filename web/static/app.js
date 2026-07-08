@@ -6,21 +6,6 @@ function encriptar(contraseña){
     return hash.toString();
 }
 
-function log(){//funcion a la que se llama desde html cuando se hace click en el boton Ingresar
-    let nombre = document.querySelector("#nombre").value //variable que guarda el valor introducido en el nombre de ususario
-    let contraseña = document.querySelector("#contraseña").value //variable que guarda el valor introducido en la contraseña
-    const encriptada = encriptar(contraseña)
-    makeRoute = `/${nombre}/${encriptada}`
-    setTimeout(() => {
-        window.open(makeRoute, "_self")
-    }, 1000)
-    //usuarios_db(nombre, contraseña); //se llama a la funcion que obtiene la información de la base de datos
-}
-
-/*function comprobar_usuario(datos, inputUser, inputPass){ //esta funcion se encarga de combrobar el usuario y contraseña
-
-}*/
-
 function usuarios_db(nombre, contraseña){ //solicita la información a la base de datos para despues utilizarla
     //var info = 0 // variable para posteriormente guardar la informacion de la base de datos
     
@@ -96,12 +81,3 @@ function cookies(nombre){
     let valorOfCookie = micookie.substring(igual+1);
     return valorOfCookie
 }
-
-var info = 0 // variable para posteriormente guardar la informacion de la base de datos
-    fetch('static/json/user.json')
-    .then(respuesta => respuesta.json())
-    .then(data => {
-        data.forEach(date => {
-            info = data
-        });
-    })

@@ -22,6 +22,7 @@ def inicio():
 # El inicio de sesion se gestiona desde la misma ruta, pero se define por el tipo de peticion recibido 
 @app.route('/login', methods=['GET', 'POST'])
 def saludo():
+    # Segun el metodo usado en la peticion post, se define si tiene que mostrar la pagina o comprobar el inicio de sesion
     if req.method == 'POST':
         user_name = req.form['username']
         password = req.form['password']
